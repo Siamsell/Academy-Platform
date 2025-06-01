@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de direction</title>
+</head>
+<body>
+    <h1>Page de direction</h1>
+    <ul>
+        <% demandes.forEach(demande => { %>
+            <li>
+                <h2><%= demande.nom %></h2>
+                <p><%= demande.description %></p>
+                <a href="/valider-demande/<%= demande.id %>">Valider</a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

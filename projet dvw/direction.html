@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation des Demandes</title>
+    <link rel="stylesheet" href="styll.css">
+</head>
+<body>
+    <h1>Validation des Demandes</h1>
+    <ul id="demandeList"></ul>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const response = await fetch('/api/liste-demandes');
+            if (!response.ok) throw new Error('Erreur de réseau');
+            const demandes = await response.json();
+            
+            const demandeList = document.getElementById('demandeList');
+            demandeList.innerHTML = demandes.map(demande => `
+                <li>
+                    <strong>${demande.nom}</strong>
+                    <p>${demande.description}</p>
+                    <p>Status: ${demande.statut}</p>
+                    ${demande.statut === 'en attente' ? 
+                        `<button onclick="validerDemande(${demande.id})">Valider</button>` : ''}
+                </li>
+            `).join('');
+        } catch (error) {
+            console.error('Erreur:', error);
+        }
+    });
+
+    async function validerDemande(id) {
+        try {
+            const response = await fetch(`/api/valider-demande/${id}`, {
+                method: 'POST',
+            });
+
+            const result = await response.json();
+            alert(result.message);
+            location.reload(); // Recharger la page pour mettre à jour la liste des demandes
+        } catch (error) {
+            console.error('Erreur:', error);
+        }
+    }
+    </script>
+</body>
+</html>
+

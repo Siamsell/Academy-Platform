@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Demande</title>
+    <link rel="stylesheet" href="stylesdem.css">
+</head>
+<body>
+    <h1>Formulaire de Demande</h1>
+    <form id="demandeForm">
+        
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required><br>
+
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <script>
+    document.getElementById('demandeForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    const nom = document.getElementById('nom').value;
+    const description = document.getElementById('description').value;
+
+    try {
+        const response = await fetch('/api/demande', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nom, description })
+        });
+
+        const result = await response.json();
+        alert(result.message);
+    } catch (error) {
+        console.error('Erreur:', error);
+        alert('Erreur lors de l\'envoi de la demande');
+    }
+});
+
+    </script>
+</body>
+</html>
