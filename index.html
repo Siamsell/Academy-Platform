@@ -1,666 +1,909 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="mainP.css">
-  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/user.css' rel='stylesheet'>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
-  <title>Arcadia Academy</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
- <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
- @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-@import url('https://unpkg.com/css.gg@2.0.0/icons/css/user.css');
-@font-face {
-  font-family: 'OpenSans';
-  src: url('fonts/OpenSans-Regular.ttf') format('truetype');}
+  <title>Arcadia Academy - École d'Arts de la Scène</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #8e2a2a;
+      --secondary-color: #5a1a1a;
+      --accent-color: #d4af37;
+      --light-color: #f8f1e9;
+      --dark-color: #1a1a1a;
+      --text-color: #333;
+      --text-light: #f5f5f5;
+      --transition: all 0.3s ease;
+    }
 
-@font-face {
-  font-family: 'OpenSans-Bold';
-  src: url('fonts/OpenSans-Bold.ttf') format('truetype');
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: var(--light-color);
+    }
 
-body{
-  margin: 0px 0px;
-  color: #333;
-  line-height: 1.6;
+    /* Header Styles */
+    header {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('header.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--text-light);
+      overflow: hidden;
+    }
 
+    .header-content {
+      max-width: 800px;
+      padding: 0 20px;
+      z-index: 2;
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
-}
+    .logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--light-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+      transition: var(--transition);
+    }
 
-header{
-  display: flex;
-  position: relative;
- align-items: center;
- justify-content: center;
-  height:600px;
-  /*background-color: #1251537b;*/
-  padding: 10px;
-  font-family: 'opensans-bold';
-  background-image: url('header.jpg');
-  background-size: cover;
-  background-position: center center;
-   box-shadow: 0 4px 8px rgba(222, 69, 69, 0.1);
-    background-color: rgba(85, 8, 8, 0.5);
-}
-.header-background {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
 
-.header-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.logo {
-  height: 4cm; 
-  width: 4cm; 
-  border-radius: 50%;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-  margin-top: 10px;
-  object-fit: cover;
-  border: 5px solid #FFFFFF;
-  padding: 10px;
-  /*margin-top: 10px;*/
-  left: 50px;}
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      color: var(--light-color);
+    }
 
+    header h2 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
 
-.logo-text {
-  font-size: 50px;
-  font-weight: bold;
-  color: #e4eaeb;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-header h2{
-  color: rgb(255, 255, 255);
- font-family: Georgia, 'Times New Roman', Times, serif;
-font-style: unset;
-font-size: 16px;
-word-spacing: 5px;}
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--light-color);
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
 
-.container{
-  display: flex;
-  height: calc(100vh - 90px);
-  color: #491a1a;
-  
-}  
-#section-prn{
-  background-color: #110101;
-}
-nav {
-  background-color: #4c0b0b;
-  width: 200px;
-  overflow-y: auto;
-  padding: 20px;
-  top:0;
-  box-sizing: border-box;
-  border-right: 1px solid #000000;
+    /* Navigation */
+    nav {
+      background-color: var(--primary-color);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-}
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-nav ul {
-  list-style: none;
-  font-size: smaller;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
+    .nav-logo {
+      color: var(--light-color);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-nav li {
-  margin: 15px 0;
-  color: #f9f9f9;
-}
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
 
-.icon-nom::before {
-  content: "\f007"; /* Utilisez le code Unicode de l'icône */
-  font-family: "FontAwesome";
-  margin-right: 0.5em;
-  font-weight: 900; 
+    .nav-item {
+      margin-left: 30px;
+    }
 
-}
+    .nav-link {
+      color: var(--light-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
 
-.icon-prenom::before {
-  content: "\f006"; /* Utilisez le code Unicode de l'icône */
-  font-family: "FontAwesome";
-  margin-right: 0.5em;
-  font-weight: 900; 
-}
+    .nav-link:hover {
+      color: var(--accent-color);
+    }
 
-.icon-group::before {
-  content: "\f0c0"; /* Utilisez le code Unicode de l'icône */
-  font-family: "FontAwesome";
-  margin-right: 0.5em;
-  font-weight: 900; 
-}
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      bottom: -5px;
+      left: 0;
+      transition: var(--transition);
+    }
 
-.icon-matricule::before {
-  content: "\f024"; 
-  font-family: "FontAwesome";
-  margin-right: 0.5em;
-  font-weight: 900;
-}
-.icon-gmail::before{
-  content: "\f0e0";
-  font-family: "FontAwesome";
-  margin-right: 0.5em;
-  font-weight: 900; 
+    .nav-link:hover::after {
+      width: 100%;
+    }
 
-}
-aside {
-  width: 200px;
-  padding: 25px;
-  background-color: #2f0202;
-  border-left: 1px solid #1d0d0d;
-  overflow-y: auto;
-}
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
 
-aside h1 {
-  color: #e1cece;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 20px;
-}
-aside h2{
-  font-size: 18px;
-  color: #eddfdff4;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-aside li {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #ffffff;
-  line-height: 1.6;
-  font-size: 15px;
-  margin-top: 50px;
-}.marquee {
-  height: 500px;
-  width: 100%;
-}
+    section {
+      margin-bottom: 60px;
+    }
 
-.promotion marquee p {
-  margin-top: 20px; 
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
 
-} 
-main {
-  flex: 1;
-  padding: 20px;
-  display: flex;
- flex-direction: column;
-  overflow-y: auto; }
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
 
+    h1::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background: var(--accent-color);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
+    h2 {
+      font-size: 2rem;
+    }
 
-#ecole_desc{
-border: none;
-  width: 50%;
-  height: 50%;
-  background-color: #ffffff;
-}
- h1{
-text-align : center;
-color: #000000f4;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-font-size: 30px;
-border-bottom: 1px solid #000000;
-padding-bottom:10px;}
-h2{
-  text-align : center;
-  color: #e4eaeb;
-font-family: 'Times New Roman', Times, serif;
-  font-size: large;
-}
+    h3 {
+      font-size: 1.5rem;
+    }
 
-    #ecole-desc p{
-  font-size:6px;
-  margin-top: 10px;
-  color: #000000;
-  text-align: center;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-#ec{
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 19px;
-  color: #5f3f3f;
-}
-h3{
-  text-align: center;
-  color: #c4b5b5;
-  margin-top: 10px;
-}
-h5{
-  text-align: center;
-  color:#f9f4f4f4;
-  font-size: 35px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  border-bottom: 1px solid #bc9c9c;
-padding-bottom:10px;
-}
-article {
-  display: flex;
-  position: relative;
-  border: 2px solid rgb(1, 10, 10); 
-  gap: 12px;
-  background-color: #2d0404;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-  width: 85%;
-  margin-bottom: 20px;
-}
-article img {
-  width: 25%;
-  height: auto;
-  border-radius: 50%;
-  object-fit: cover;
-}
+    p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
 
-#cont{ 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
- 
-}
+    /* About Section */
+    .about-section {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
 
+    .about-section:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
 
-.details{
-  background-color: #eceeee;
-   padding: 6px 16px;
-  border-radius: 5px;
-  width: fit-content;
-  margin-top: 15px;
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-}
+    .about-text {
+      max-width: 800px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-.details a{
-  text-decoration: none;
-  color: #490d0d;
-}
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      text-align: center;
+    }
 
-.text {
-  min-width: 500px;
-  max-width: 90%; 
-  word-wrap: break-word; 
-  display: block;
-  width: 200px; 
-  padding: 10px;
-  color: #eaf1f1;
-}
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
 
- #comments-section{
-  padding: 20px;
-  border-top: 1px solid #040000;
-  margin-bottom: 20px;
-  display: flex;
-  grid-template-columns: repeat(2,1fr);
-  flex-direction: column;
-  justify-content: center;
-  background-color: #400a0a;
-  gap: 10px;
-  flex-wrap: wrap;
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+    }
 
- }
- #comments-section h1 {
-  order: 1;
-  text-align: center;
-  color: #fcfafa;
-text-align: center;
-}
-#comments-section p{ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-color: #fffffff4;
-order: 1; }
+    /* Courses Section */
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
- #comment-form{
-  background-color: #efdede;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
-  /*min-width: 45em;*/
-  gap: 10px;
-  border-radius: 10px;
-  order: 2;
-  width:60% ;
-  
+    .course-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
 
- }
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
 
- input , textarea , button{
-  border-radius: 5px;
-  border: 1px solid rgb(255, 242, 242);
-  padding: 10px;
- }
+    .course-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
 
- input{
-  padding: 10px;
-  font-size: 16px;
- }
+    .course-content {
+      padding: 25px;
+    }
 
- button{
-  box-sizing: content-box;
-  padding: 10px ;
-  color: rgba(35, 3, 3, 0.596);
-  cursor: pointer;
- }
- button:hover {
-  background: #300202;
-}
+    .course-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
 
+    .course-description {
+      margin-bottom: 20px;
+    }
 
- #ecole_desc{
-  display: flex;
-  flex-direction: column;
+    .details-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: var(--transition);
+      font-weight: 500;
+    }
 
- }
+    .details-btn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
 
- #ecole_desc  li{
-  list-style: none;
-  font-size: 20px;
- }
+    /* Comments Section */
+    .comments-section {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
 
- #ecole_desc  p{
-  font-size: 18px;
-margin: 8px 20px;
- }
+    .comment-form {
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
 
-.formations{
-  border: 2px solid rgb(67, 3, 3);
-}
-#ec p{
-  font-size:15px;
-  font-family: 'Times New Roman', Times, serif;
-  color: #e5f1f1;
-}
-.text h2{
-  margin-bottom: 10px;
-}
-#comment_liste  {
-  display: flex;
-  width: 40%;
-}
-  #types h1{
-    color: wheat;
-  }</style>
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(142, 42, 42, 0.2);
+    }
+
+    .submit-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .submit-btn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-list {
+      margin-top: 40px;
+    }
+
+    .comment-item {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .comment-author {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .comment-date {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* Promotions Sidebar */
+    .sidebar {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-title {
+      color: var(--light-color);
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .sidebar-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 2px;
+      background: var(--accent-color);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .promotion-item {
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .promotion-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .promotion-title {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .promotion-list {
+      list-style-type: none;
+    }
+
+    .promotion-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+
+    .promotion-list li::before {
+      content: '•';
+      color: var(--accent-color);
+      position: absolute;
+      left: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-color);
+      color: var(--text-light);
+      padding: 60px 0 30px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--light-color);
+    }
+
+    .footer-about {
+      margin-bottom: 20px;
+    }
+
+    .footer-title {
+      color: var(--accent-color);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .contact-icon {
+      margin-right: 15px;
+      color: var(--accent-color);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--light-color);
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+      40% { transform: translateY(-20px) translateX(-50%); }
+      60% { transform: translateY(-10px) translateX(-50%); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .logo-text {
+        font-size: 2.5rem;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .logo-text {
+        font-size: 2rem;
+      }
+      
+      header h2 {
+        font-size: 1.2rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .courses {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .header-content {
+        padding: 0 15px;
+      }
+      
+      .logo-text {
+        font-size: 1.8rem;
+      }
+      
+      .container {
+        padding: 0 15px;
+      }
+      
+      .about-section, .comments-section {
+        padding: 25px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Header Section -->
   <header>
-    <div class="header-bakground">
-      <div class="header-content">
-        <img src ="4.png"alt="logo"class="logo">
-    <h1 class="logo-text">
-      Bienvenue à l'École de la Scène Brillante</h1><br>
-        <h2> Formation Artistique de Qualité </h2>
-      </div>
+    <div class="header-content">
+      <img src="4.png" alt="Logo Arcadia Academy" class="logo">
+      <h1 class="logo-text">École de la Scène Brillante</h1>
+      <h2>L'excellence artistique à portée de main</h2>
     </div>
-    <!--/div-->
+    <div class="scroll-down">
+      <i class="fas fa-chevron-down"></i>
+    </div>
   </header>
-  <div class="container">
-    <nav >
-      <ul>
-        <li><div class= "icon-gmail"> adresse-email: sihamsella9@gmail.com</div></li>
-              
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Arcadia</a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#about" class="nav-link">À propos</a></li>
+        <li class="nav-item"><a href="#courses" class="nav-link">Formations</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="#comments" class="nav-link">Témoignages</a></li>
       </ul>
-    </nav>
-  
-  <main id="section-prn">
-      <div id="cont">
-        <h2> &#x1D11E Bienvenue à L'École de la Scène Brillante, où la passion rencontre l'excellence! Nous sommes fiers de vous offrir des formations de qualité en musique, danse et chant, adaptées à tous les niveaux et âges &#x1D11E </h2>
-        <article id="ecole_desc">
-          <h1>  NOTRE HISTOIRE</h1>
-          <p>&#x1D11E L'École de la Scène Brillante est née de la passion pour les arts du spectacle. Notre école s'efforce de cultiver le talent artistique de chaque élève, en fournissant un environnement d'apprentissage stimulant et bienveillant. Nous croyons en l'expression artistique comme un moyen de connecter les individus et de susciter l'émotion. Rejoignez-nous pour explorer le vaste monde de la scène et de la créativité &#x1D11E </p>
-        </article>
-        <div id="ec">
-         <h3>Pourquoi Choisir L'École la Scène Brillante ? </h3> 
-         <ul>
-
-<li><h4>Enseignement d'Excellence</h4></li>
-
-<p >Nos professeurs sont des artistes expérimentés et passionnés, reconnus dans leur domaine. Ils apportent une expertise inégalée et un soutien personnalisé pour vous aider à développer vos talents et à atteindre vos objectifs artistiques.</p>
-
-<li><h4>Programmes Diversifiés</h4></li>
-
-<p>Que vous soyez débutant ou artiste confirmé, nous avons des programmes adaptés à vos besoins</p>
-<li><h4>Installations Modernes</h4></li>
-
-<p>Nos locaux sont équipés des dernières technologies et offrent des espaces conçus pour favoriser la créativité et l'apprentissage </p>
-
-<li><h4>Opportunités de Performance</h4></li>
-
-<p>Nous croyons que la pratique est essentielle pour l'apprentissage. Participez à des concerts, des spectacles de danse, des compétitions et des récitals tout au long de l'année pour mettre en valeur vos compétences et gagner en confiance sur scène.</p>
-
-<li><h4>Communauté Artistique Dynamique</h4></li>
-
-<p>Rejoignez une communauté de passionnés qui partagent votre amour pour les arts. Échangez, collaborez et créez des liens durables avec d'autres étudiants et artistes.</p>
-
-
-</ul>
-        </div>
-        <h5>nos formations</h5>
-
-        <article class="formations">
-        <img src="dance.jpg" alt="formation image">
-        <div class="text">
-          <h2>LA DANSE</h2>
-          <p>À L'École  de la Scène Brillante, nous croyons en la puissance de la danse pour inspirer, émouvoir et connecter. Que vous rêviez de danser sur une scène, d'explorer de nouveaux styles ou simplement de vous exprimer à travers le mouvement, nos cours vous offrent l'opportunité de développer votre talent et votre passion. Rejoignez notre communauté dynamique et laissez-vous emporter par le rythme de la danse.</p>
-        <p class="details"><a href="f1.html" >Details </a></p>
-        </div>
-    </article>
-  
-    <article class="formations">
-        <img src="chante.jpg" alt="formation image">
-        <div class="text">
-          <h2>LE CHANT</h2>
-          <p>À L'École de la Scène Brillante, la musique est au cœur de tout ce que nous faisons, et le chant est une forme d'expression qui nous touche profondément. Que vous soyez un chanteur débutant ou que vous souhaitiez perfectionner votre technique, nos cours de chant vous offrent une occasion unique d'explorer et de développer votre voix. Rejoignez-nous et laissez votre voix résonner avec confiance et passion.</p>
-          <p class="details"><a href="f2.html">Details</a></p>
-        </div>
-    </article>
-  
-    <article class="formations">
-        <img src="musique.jpg" alt="formation image">
-        <div class="text">
-          <h2>INSTRUMENTS MUSICAUX</h2>
-          <p>À L'École de la Scène Brillante, chaque note résonne avec une promesse d'expression et d'épanouissement musical. Que vous soyez fasciné par les mélodies envoûtantes du violon, les accords envoûtants du piano ou les rythmes palpitants des percussions, nos cours d'instruments musicaux vous invitent à explorer et à maîtriser votre art. Rejoignez notre communauté de musiciens passionnés et laissez-vous transporter dans un monde où la créativité et la passion se rencontrent pour créer une harmonie parfaite.</p>
-          <p class="details"><a href="f3.html">Details</a></p>
-        </div>
-    </article>
-  <hr>
-
-  <!--aisde class="promotion">
-    <div classe="promotions">
-  <h2>nos promotion</h2>
-  <marquee behavior="scroll" direction="left" class="marquee"><p>Réductions des tarifs selon le nombre d’apprentis ou le type de formation...<br>
-  </p> </marquee> </div>
-  <div classe="promotions">
-    <h2>nos promotion</h2>
-    <marquee behavior="scroll" direction="left" class="marquee"><p>Réductions des tarifs selon le nombre d’apprentis ou le type de formation...<br>
-  .....siham alors hhgnjtrnjtrnbjn
-  <br>
-  <br>
-  123456498023295955252
-  ...
-  ....
-  ...
-  ..
-  .....
-  <br>
-  <br>
-  1<Br>
-    222
-    <br>
-    333
-  
-  </p></marquee>
-  </aside>
-  </div>
-  </aisde>
-  <br-->
-
-  <!-- <section class="section">
-
-    <span id="avis">
-    <h2>Les avis de nos participnats</h2>
-    <p>Voulez-vous partager votre experience avec x? <a href="#">Envoyer un commentaire</a></p>
-  </span>
-
-  <div class="comment">
-    <img src="user.jpeg" alt="">
-    <div id="cm">
-      <h3>username</h3>
-      <div class="text">
-        <p>joihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihj</p>
-      </div>
     </div>
-  </div>
-  
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="about-content">
+        <h1>Notre Histoire</h1>
+        <div class="about-text">
+          <p>Fondée en 2010, l'École de la Scène Brillante est née de la passion pour les arts du spectacle. Notre école s'efforce de cultiver le talent artistique de chaque élève, en fournissant un environnement d'apprentissage stimulant et bienveillant. Nous croyons en l'expression artistique comme un moyen de connecter les individus et de susciter l'émotion.</p>
+          <p>Rejoignez-nous pour explorer le vaste monde de la scène et de la créativité, où chaque étudiant est encouragé à briller de son propre éclat.</p>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3>Enseignement d'Excellence</h3>
+          <p>Nos professeurs sont des artistes expérimentés et passionnés, reconnus dans leur domaine. Ils apportent une expertise inégalée et un soutien personnalisé.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Programmes Diversifiés</h3>
+          <p>Que vous soyez débutant ou artiste confirmé, nous avons des programmes adaptés à vos besoins et à votre niveau.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3>Installations Modernes</h3>
+          <p>Nos locaux sont équipés des dernières technologies et offrent des espaces conçus pour favoriser la créativité et l'apprentissage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+      <h1>Nos Formations Artistiques</h1>
+      <p class="text-center">Découvrez nos programmes d'excellence conçus pour développer votre talent artistique</p>
+
+      <div class="courses">
+        <div class="course-card">
+          <img src="dance.jpg" alt="Formation Danse" class="course-img">
+          <div class="course-content">
+            <h3 class="course-title">La Danse</h3>
+            <p class="course-description">Explorez divers styles de danse avec nos professeurs experts. Du classique au contemporain, trouvez votre expression à travers le mouvement.</p>
+            <a href="f1.html" class="details-btn">En savoir plus</a>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="chante.jpg" alt="Formation Chant" class="course-img">
+          <div class="course-content">
+            <h3 class="course-title">Le Chant</h3>
+            <p class="course-description">Développez votre voix et votre technique vocale avec nos cours adaptés à tous les niveaux. Découvrez la joie de chanter avec confiance.</p>
+            <a href="f2.html" class="details-btn">En savoir plus</a>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <img src="musique.jpg" alt="Formation Instruments" class="course-img">
+          <div class="course-content">
+            <h3 class="course-title">Instruments Musicaux</h3>
+            <p class="course-description">Maîtrisez l'instrument de votre choix avec nos professeurs spécialisés. Piano, guitare, violon et bien d'autres vous attendent.</p>
+            <a href="f3.html" class="details-btn">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section id="comments" class="comments-section">
+      <h1>Témoignages de nos élèves</h1>
+      <p>Découvrez ce que nos étudiants disent de leur expérience à l'École de la Scène Brillante.</p>
+
+      <div class="comment-list" id="comment-list">
+        <div class="comment-item">
+          <div class="comment-author">Sophie Martin</div>
+          <div class="comment-date">15 juin 2023</div>
+          <p>Une école exceptionnelle avec des professeurs dévoués. Mon niveau de danse s'est considérablement amélioré en seulement quelques mois. Je recommande vivement !</p>
+        </div>
+
+        <div class="comment-item">
+          <div class="comment-author">Thomas Leroy</div>
+          <div class="comment-date">2 mai 2023</div>
+          <p>Les cours de chant sont tout simplement incroyables. L'ambiance est bienveillante et les progrès rapides. Merci à toute l'équipe pour leur professionnalisme.</p>
+        </div>
+      </div>
+
+      <form id="comment-form" class="comment-form">
+        <h3>Laissez votre avis</h3>
+        <div class="form-group">
+          <label for="name">Votre nom</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Votre email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="comment">Votre message</label>
+          <textarea id="comment" name="comment" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Envoyer</button>
+      </form>
+    </section>
+
+    <!-- Promotions Sidebar -->
+    <aside class="sidebar">
+      <h2 class="sidebar-title">Promotions en cours</h2>
       
-  <div class="comment">
-    <img src="user.jpeg" alt="">
-    <div id="cm">
-      <h3>username</h3>
-      <div class="text">
-        <p>joihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihj</p>
+      <div class="promotion-item">
+        <h3 class="promotion-title">Formation Danse</h3>
+        <ul class="promotion-list">
+          <li>Inscription anticipée : -15% avant le 31 août</li>
+          <li>Parrainage : -10% pour vous et votre filleul</li>
+          <li>Groupe de 3+ : -20% pour chaque participant</li>
+        </ul>
       </div>
-    </div>
-  </div>
-  
-  <div class="comment">
-    <img src="user.jpeg" alt="">
-    <div id="cm">
-      <h3>username</h3>
-      <div class="text">
-        <p>joihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihj</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="comment">
-    <img src="user.jpeg" alt="">
-    <div id="cm">
-      <h3>username</h3>
-      <div class="text">
-        <p>joihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihjjoihhhhihoihjiouhuihiuhuhjuihj</p>
-      </div>
-    </div>
-  </div>
-    
-  </section>
-
-    <hr>
-
-<section class="section">
-    <input type="email" placeholder="Enterer votre email">
-    <textarea name="saisir_cmnt" id="saisirCmnt" cols="80" rows="12" placeholder="saisir votre commentaire"></textarea>
-    <input type="submit" name="envoyer" value="Envoyer">
-</section> -->
-
-<section id="comments-section">
-    <h1>Laissez un commentaire</h1>
-    <p>Nous serions ravis de connaître votre opinion et vos expériences. Veuillez laisser vos commentaires ci-dessous pour partager vos réflexions avec notre communauté.</p>
-    <form id="comment-form" action="submit_comment.php" method="POST">
-      <label for="email">Adresse email :</label>
-      <input type="email" id="email" name="email" required>
-      <label for="comment">Commentaires :</label>
-      <textarea name="comment" id="comment" rows="10"></textarea>
-      <button type="submit">Envoyer</button>
-  </form>
-  
-  <ul id="comment-list"> <li> <p > Commentaires des visiteurs <p>
-    <p>Par: John Doe</p>
-  </li>
-  <li>
-    <p>Commentaire 2</p>
-    <p>Par: Jane Doe</p>
-  </li> </ul>
-</section>
-</main>
-<aside>
-  <h1>Promotions</h1>
-  <marquee behavior="scroll" direction="up" scrollamount="2" style="height: 150px;">
-    <h2>Nos Promotions pour la Formation de Danse</h2>
-    <ul>
-      <li>Offre de parrainage : Pour chaque nouvel étudiant recommandé par un étudiant actuel de la formation de danse, offrez une réduction de 15% sur les frais de scolarité pour les deux parties.</li>
-      <li>Réduction pour les inscriptions anticipées : Inscrivez-vous à la formation de danse avant le 31 août et bénéficiez d'une réduction de 10% sur les frais de scolarité.</li>
-      <li>Promotion de groupe : Inscrivez-vous en groupe de quatre personnes ou plus à la formation de danse et bénéficiez d'une réduction de 20% sur les frais de scolarité pour chaque membre du groupe.</li>
-    </ul>
-  <hr>
-    <h2>Nos Promotions pour la Formation de Chant</h2>
-    <ul>
-      <li>Réduction pour les étudiants en difficulté financière : Offrez une réduction spéciale de 50% sur les frais de scolarité pour les étudiants en difficulté financière qui s'inscrivent à la formation de chant.</li>
-      <li>Promotion de rentrée des classes : Pour célébrer la rentrée des classes, inscrivez-vous à la formation de chant et bénéficiez d'une réduction de 30% sur les frais de scolarité.</li>
-      <li>Réduction pour les anciens élèves : Tous les anciens élèves de la formation de chant bénéficient d'une réduction de 15% sur les frais de scolarité lorsqu'ils s'inscrivent à un cours supplémentaire.</li>
-    </ul>
-    <hr>
-    <h2>Nos Promotions pour la Formation d'Instruments Musicaux</h2>
-    <ul>
-      <li>Promotion de remboursement : Inscrivez-vous à un cours d'instruments musicaux et bénéficiez d'un remboursement de 50% sur les frais de scolarité si vous n'êtes pas satisfait après les deux premières leçons.</li>
-      <li>Offre spéciale de vacances : Pendant les vacances d'été, inscrivez-vous à la formation d'instruments musicaux et bénéficiez d'une réduction de 25% sur les frais de scolarité pour toutes les nouvelles inscriptions.</li>
-      <li>Réduction pour les inscriptions anticipées : Inscrivez-vous à la formation d'instruments musicaux avant le 15 juillet et bénéficiez d'une réduction de 10% sur les frais de scolarité.</li>
-    </ul>
-    </marquee>
-</aside>
-</div>
- <footer style="background-color: #2f0202; color: white; text-align: center; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-top: 1px solid #190808;">
-  <div style="margin-bottom: 10px;">
-    <i class="fas fa-map-marker-alt"></i> Adresse : Rue de la Culture, Alger, Algérie<br>
-    <i class="fas fa-phone"></i> Téléphone : +213 555 555 555<br>
-    <i class="fas fa-envelope"></i> Email : contact@scene-brillante.dz
-  </div>
-  <div style="margin-bottom: 10px;">
-    <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
-    <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-youtube"></i></a>
-  </div>
-  <div style="font-size: 14px;">
-    &copy; 2023 École de la Scène Brillante. Tous droits réservés.
-  </div>
-</footer>
-
-<script>
-  // Récupérer les commentaires du stockage local s'ils existent
-  let savedComments = localStorage.getItem('comments');
-  if (savedComments) {
-      document.getElementById('comment-list').innerHTML = savedComments;
-  }
-
-  document.getElementById('comment-form').addEventListener('submit', function(event) {
-      event.preventDefault();
       
-      let email = document.getElementById('email').value;
-      let comment = document.getElementById('comment').value;
+      <div class="promotion-item">
+        <h3 class="promotion-title">Formation Chant</h3>
+        <ul class="promotion-list">
+          <li>Cours d'essai gratuit</li>
+          <li>Forfait 10 cours : 1 cours offert</li>
+          <li>Étudiants : -25% sur présentation de carte</li>
+        </ul>
+      </div>
       
-      if (validateEmail(email)) {
-          let commentList = document.getElementById('comment-list');
-          let newComment = document.createElement('li');
-          newComment.innerHTML = `<p>${comment}</p><p>Par: ${email}</p>`;
-          commentList.appendChild(newComment);
+      <div class="promotion-item">
+        <h3 class="promotion-title">Instruments Musicaux</h3>
+        <ul class="promotion-list">
+          <li>Location d'instrument incluse</li>
+          <li>Cours en duo : -30% par personne</li>
+          <li>Pack découverte 3 instruments</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo">Arcadia</div>
+        <p>L'École de la Scène Brillante est dédiée à l'excellence artistique et à l'épanouissement de chacun de ses élèves à travers les arts de la scène.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-contact">
+        <h3 class="footer-title">Contactez-nous</h3>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <span>123 Rue des Arts, 75000 Paris, France</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt contact-icon"></i>
+          <span>+33 1 23 45 67 89</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span>contact@scene-brillante.fr</span>
+        </div>
+      </div>
+
+      <div class="footer-hours">
+        <h3 class="footer-title">Horaires d'ouverture</h3>
+        <p>Lundi - Vendredi : 9h - 20h</p>
+        <p>Samedi : 10h - 18h</p>
+        <p>Dimanche : Fermé</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2023 École de la Scène Brillante. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Comment form submission
+    document.getElementById('comment-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const comment = document.getElementById('comment').value;
+      
+      if (name && email && comment) {
+        if (validateEmail(email)) {
+          const commentList = document.getElementById('comment-list');
+          const newComment = document.createElement('div');
+          newComment.className = 'comment-item';
+          newComment.innerHTML = `
+            <div class="comment-author">${name}</div>
+            <div class="comment-date">${new Date().toLocaleDateString('fr-FR')}</div>
+            <p>${comment}</p>
+          `;
+          commentList.prepend(newComment);
           
- // Sauvegarder les commentaires dans le stockage local
- localStorage.setItem('comments', commentList.innerHTML);
-                  
-                  document.getElementById('email').value = '';
-                  document.getElementById('comment').value = '';
-              } else {
-                  alert('Veuillez entrer une adresse email valide.');
-              }
-          });
-      
-          function validateEmail(email) {
-              let re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-              return re.test(String(email).toLowerCase());
-          }
-        </script>
+          // Reset form
+          document.getElementById('comment-form').reset();
+          
+          // Show success message
+          alert('Merci pour votre commentaire !');
+        } else {
+          alert('Veuillez entrer une adresse email valide.');
+        }
+      } else {
+        alert('Veuillez remplir tous les champs.');
+      }
+    });
 
+    function validateEmail(email) {
+      const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    // Scroll down button
+    document.querySelector('.scroll-down').addEventListener('click', function() {
+      window.scrollBy({
+        top: window.innerHeight - 100,
+        behavior: 'smooth'
+      });
+    });
+
+    // Animation on scroll
+    const animateOnScroll = function() {
+      const elements = document.querySelectorAll('.course-card, .feature-card');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+
+    // Set initial state for animation
+    window.addEventListener('load', function() {
+      const elements = document.querySelectorAll('.course-card, .feature-card');
+      elements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // Run once on load in case elements are already visible
+    });
+  </script>
 </body>
-</html> 
+</html>
