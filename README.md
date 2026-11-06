@@ -84,7 +84,7 @@ Arcadia-Academy/
 ├── front/
 │   ├── pages
 │   ├── styles
-│   └── scripts/script
+│   
 │
 ├── img/
 │   ├── images
